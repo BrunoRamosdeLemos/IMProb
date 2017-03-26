@@ -1,0 +1,11 @@
+﻿NR Type 	Usual Definition 		Intent
+Char 			char 			8-bit signed integer
+Uchar 			unsigned char 		8-bit unsigned integer
+Int 			int 			32-bit signed integer
+Uint 			unsigned int 		32-bit unsigned integer
+Llong 			long long int 		64-bit signed integer
+Ullong 			unsigned long long int 	64-bit unsigned integer
+Doub 			double 			64-bit floating point
+Ldoub 			long double 		[reserved for future use]
+Complex 		complex<double> 	2 X 64-bit floating complex
+Bool 			bool 			true or false
