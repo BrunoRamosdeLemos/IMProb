@@ -1,0 +1,205 @@
+Random numbers:
+
+
+-A working definition of randomness in the context of computer-generated sequences
+is to say that the deterministic program that produces a random sequence
+should be different from, and — in all measurable respects — statistically uncorrelated
+with, the computer program that uses its output. In other words, any two
+different random number generators ought to produce statistically the same results
+when coupled to your particular applications program. If they don’t, then at least one
+of them is not (from your point of view) a good generator.
+
+-There is an accepted list of statistical tests, some sensible and
+some merely enshrined by history, that on the whole do a very good job of ferreting
+out any nonrandomness that is likely to be detected by an applications program (in
+this case, yours). Good random number generators ought to pass all of these tests,
+or at least the user had better be aware of any that they fail, so that he or she will be
+able to judge whether they are relevant to the case at hand.
+For references on this subject, the one to turn to first is :
+
+KnuthD.E. 1997, Seminumerical Algorithms, 3rd ed., vol. 2 of The Art of Computer Programming
+(Reading, MA: Addison-Wesley), Chapter 3, especially 3.5.[1]
+
+
+
+
+-Here are some traps to watch for:
+-> Never use a generator principally based on a linear congruential generator
+(LCG) or a multiplicative linear congruential generator (MLCG). We say
+more about this below.
+-> Never use a generator with a period less than  264  2  1019, or any
+generator whose period is undisclosed.
+-> Never use a generator that warns against using its low-order bits as being completely
+random. That was good advice once, but it now indicates an obsolete
+algorithm (usually a LCG).
+-> Never use the built-in generators in the C and C++ languages, especially rand
+and srand. These have no standard implementation and are often badly flawed.
+
+-You may also want to watch for indications that a generator is overengineered,
+and therefore wasteful of resources:
+-> Avoid generators that take more than (say) two dozen arithmetic or logical
+operations to generate a 64-bit integer or double precision floating result.
+-> Avoid using generators (over-)designed for serious cryptographic use.
+-> Avoid using generators with period > 10^100. You really will never need it,
+and, above some minimum bound, the period of a generator has little to do
+with its quality.
+
+
+RNGs: An acceptable random generator must combine at least two
+(ideally, unrelated) methods. The methods combined should
+evolve independently and share no state. The combination
+should be by simple operations that do not produce results
+less random than their operands.
+
+Numerical Recipes - RNG:
+
+ran.h
+
+
+
+
+(A) 64-bit Xorshift Method:
+
+Estado: x (unsigned 64-bit)
+inicialização: x != 0
+update: x = x ^ (x >> a1);
+	x = x ^ (x << a2);
+	x = x ^ (x >> a3);
+OU
+	x = x ^ (x << a1);
+	x = x ^ (x >> a2);
+	x = x ^ (x << a3);
+
+can use as random: x (all bits) ¾
+can use in bit mix: x (all bits)
+can improve by: output 64-bit MLCG successor
+period: 2^64 - 1
+Recommended values
+ID a1 a2 a3
+A1 21 35 4
+A2 20 41 5
+A3 17 31 8
+A4 11 29 14
+A5 14 29 11
+A6 30 35 13
+A7 21 37 4
+A8 21 43 4
+A9 23 41 18
+
+
+(B) multiply with Carry (MWC) with Base b = 2^32;
+
+state: x (unsigned 64-bit)
+initialize: 1 
+=< x =<
+ (2^32) -1 
+update: x = a ( x & [(2^32) - 1]) +( x >> 32)
+can use as random: x (low 32 bits)
+can use in bit mix: x (all 64 bits)
+can improve by: output 64-bit xorshift successor to 64 bit x
+period: [(2^32)a - 2]/2 (a prime)
+Recommended values
+ID a
+B1 4294957665
+B2 4294963023
+B3 4162943475
+B4 3947008974
+B5 3874257210
+B6 2936881968
+B7 2811536238
+B8 2654432763
+B9 1640531364
+
+(C) LCG Modulo 2^64
+
+state: x (unsigned 64-bit)
+initialize: any value
+update: x = ax + c (mod 2^64)
+can use as random: x (high 32 bits, with caution)
+can use in bit mix: x (high 32 bits)
+can improve by: output 64-bit xorshift successor
+period:2^64
+
+Recommended values
+ID 	a	 	c (any oddvalue ok)
+C1 3935559000370003845 2691343689449507681
+C2 3202034522624059733 4354685564936845319
+C3 2862933555777941757 7046029254386353087
+
+(D) MLCG Modulo 2^64
+
+state: x (unsigned 64-bit)
+initialize: x != 0
+update:  x = ax (mod 2^64)
+can use as random: x (high 32 bits, with caution)
+can use in bit mix: x (high 32 bits)
+can improve by: output 64-bit xorshift successor
+period: 2^62
+Recommended values
+ID a
+D1 2685821657736338717
+D2 7664345821815920749
+D3 4768777513237032717
+D4 1181783497276652981
+D5 702098784532940405
+
+(E) MLCG with m >> 2^32, m Prime
+state: x (unsigned 64-bit)
+initialize: 1 
+=< x =>
+ m - 1
+update: x = ax (mod m) 
+can use as random: x (1 
+=< x =>
+ m - 1) or low 32 bits
+can us in bit mix :(same)
+period : m-1
+
+Recommended values
+
+ID 	m 			a
+
+E1 2^39 - 7 = 549755813881 	10014146
+E2 				30508823
+E3 				25708129
+
+E4 2^41 - 21 = 2199023255531 	5183781
+E5 				1070739
+E6 				6639568
+
+E7 2^42 - 11 = 4398046511093 	1781978
+E8 				2114307
+E9 				1542852
+
+E10 2^43 -57 = 8796093022151 	2096259
+E11 				2052163
+E12 				2006881
+
+(F) MLCG with m >> 2^32, m Prime, and a(m- 1)~ 2^64
+
+state: x (unsigned 64-bit)
+initialize: 1  
+=< x =>
+  m - 1
+update:  x = ax (mod m)
+can use as random: x (1 
+=< x =>
+ m - 1) or low 32 bits
+can us in bit mix :as( but don't use both ax nad x) 
+can improve by: output 64-bit xorshift successor of ax
+period : m-1
+Recommended values
+ID 		m	 		a
+F1 1148 x 2^32 + 11 = 4930622455819 	3741260
+F2 1264 x 2^32 + 9 = 5428838662153 	3397916
+F3 2039 x 2^32 + 3 = 8757438316547 	2106408
+
+
+
+
+
+
+
+
+
+
