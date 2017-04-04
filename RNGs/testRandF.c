@@ -1,4 +1,4 @@
-
+//INCOMPLETA
 /*testa função nativa do c :
 funcao  rand() ,
  */
