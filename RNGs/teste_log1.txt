@@ -1,0 +1,195 @@
+C:\Users\User\Desktop\self-study\Diversos>cl /EHsc test_rand.c
+Microsoft (R) C/C++ Optimizing Compiler Version 19.00.24215.1 for x86
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+test_rand.c
+Microsoft (R) Incremental Linker Version 14.00.24215.1
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:test_rand.exe
+test_rand.obj
+
+C:\Users\User\Desktop\self-study\Diversos>test_rand
+----Ininciando Testes-----
+
+
+---------------------
+
+Teste 1
+---------------------
+Feito em: 4172 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 9996978
+-> 1 : 10005074
+-> 2 : 10003128
+-> 3 : 9997790
+-> 4 : 9999376
+-> 5 : 10001258
+-> 6 : 10000911
+-> 7 : 10003150
+-> 8 : 9999582
+-> 9 : 9992753
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 100000000 intera├º├Áes
+-O valor de chi-square e: 11.496454
+-A hipotese passou no teste!!
+
+---------------------
+
+Teste 2
+---------------------
+Feito em: 41706 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 100006134
+-> 1 : 99996315
+-> 2 : 99998181
+-> 3 : 100012014
+-> 4 : 100001648
+-> 5 : 100009385
+-> 6 : 100010756
+-> 7 : 100011505
+-> 8 : 99983134
+-> 9 : 99970928
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 1000000000 intera├º├Áes
+-O valor de chi-square e: 16.673440
+-A hipotese passou no teste!!
+
+---------------------
+
+Teste 3
+---------------------
+Feito em: 60468 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 141008948
+-> 1 : 141004319
+-> 2 : 141013781
+-> 3 : 141012313
+-> 4 : 141005883
+-> 5 : 141030594
+-> 6 : 141020125
+-> 7 : 141022731
+-> 8 : 140983943
+-> 9 : 140962771
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 1410065408 intera├º├Áes
+-Hipotese n├úo v├ílida:
+Valor de chi-square: 25.165981
+
+
+----Fim do Testes-----
+
+
+===============================================
+
+C:\Users\User\Desktop\self-study\Diversos>test_rand
+----Ininciando Testes-----
+
+
+---------------------
+
+Teste 1
+---------------------
+Feito em: 4201 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 9998651
+-> 1 : 10001798
+-> 2 : 9999729
+-> 3 : 9998441
+-> 4 : 9998843
+-> 5 : 10002003
+-> 6 : 10004343
+-> 7 : 10002760
+-> 8 : 9998488
+-> 9 : 9994944
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 100000000 intera├º├Áes
+-O valor de chi-square e: 6.723571
+-A hipotese passou no teste!!
+
+---------------------
+
+Teste 2
+---------------------
+Feito em: 42348 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 100008811
+-> 1 : 100013080
+-> 2 : 100008694
+-> 3 : 99993213
+-> 4 : 100008785
+-> 5 : 99999361
+-> 6 : 100000972
+-> 7 : 100012154
+-> 8 : 99972649
+-> 9 : 99982281
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 1000000000 intera├º├Áes
+-O valor de chi-square e: 16.586583
+-A hipotese passou no teste!!
+
+---------------------
+
+Teste 3
+---------------------
+Feito em: 61291 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 141015880
+-> 1 : 141007553
+-> 2 : 141006400
+-> 3 : 141026760
+-> 4 : 141013024
+-> 5 : 141021400
+-> 6 : 141023219
+-> 7 : 141005516
+-> 8 : 140974152
+-> 9 : 140971504
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 1410065408 intera├º├Áes
+-Hipotese n├úo v├ílida:
+Valor de chi-square: 23.514747
+
+
+----Fim do Testes-----
+=============================================
+
+
+C:\Users\User\Desktop\self-study\Diversos>limits
+CHAR_BIT    :   8
+CHAR_MAX    :   127
+CHAR_MIN    :   -128
+INT_MAX     :   2147483647
+INT_MIN     :   -2147483648
+LONG_MAX    :   2147483647
+LONG_MIN    :   -2147483648
+SCHAR_MAX   :   127
+SCHAR_MIN   :   -128
+SHRT_MAX    :   32767
+SHRT_MIN    :   -32768
+UCHAR_MAX   :   255
+UINT_MAX    :   4294967295
+ULONG_MAX   :   4294967295
+USHRT_MAX   :   65535
+FLT_MAX     :   3.40282e+38
+FLT_MIN     :   1.17549e-38
+-FLT_MAX    :   -3.40282e+38
+-FLT_MIN    :   -1.17549e-38
+DBL_MAX     :   1.79769e+308
+DBL_MIN     :   2.22507e-308
+-DBL_MAX     :  -1.79769e+308
+
+
+
+
+
+
+
+
+
+

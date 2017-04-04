@@ -1,3 +1,4 @@
+
 /*testa função nativa do c :
 funcao  rand() ,
  */
@@ -8,31 +9,28 @@ funcao  rand() ,
 #include <math.h>
 #include <sys/timeb.h>
 
-void testPara(int nit, int n);
-void teste_chi_square(int nit,int vtotal[],int n);
+void testPara(int it);
 
 int main(){
     
     printf("----Ininciando Testes-----\n");
     int iteracao;
-    int nvar;
-    nvar=10;//dez variaveis
 
     //Fazendo os testes
     //10^5
     iteracao = 100000;
     printf("\n\n---------------------\n\nTeste 1\n---------------------\n",iteracao);
-    testPara(iteracao,nvar);
+    testPara(iteracao);
 
     //10^6
     iteracao = 1000000;
     printf("\n\n---------------------\n\nTeste 2\n---------------------\n",iteracao);
-    testPara(iteracao,nvar);
+    testPara(iteracao);
 
     //10^7
     iteracao = 10000000;
     printf("\n\n---------------------\n\nTeste 3\n---------------------\n",iteracao);
-    testPara(iteracao,nvar);
+    testPara(iteracao);
 
      printf("\n\n\n----Fim do Testes-----\n");
 
@@ -40,16 +38,12 @@ int main(){
 
 }
 
-void testPara(int nit,int n){
+void testPara(int nit){
     srand(time(NULL));   // seed é o time
-    int *total;
-    total=(int *)malloc(sizeof(int)*n);
+    int total[10]={0,0,0,0,0,0,0,0,0,0};
     int it = nit; //numero de interacoes
+    
     int i;
-    for (i=0; i<n; i++){
-        total[i] = 0;
-        }
-
     struct timeb start, end;//para o tempo de execução
     int diff;
     ftime(&start);
@@ -66,22 +60,17 @@ void testPara(int nit,int n){
     for(i=0;i<10;i++){
         printf("-> %d : %d \n",i,total[i]);
     }
-    teste_chi_square(nit,total,n);
-}
 
-
-void teste_chi_square(int nit,int *vtotal,int n){
     //teste chi-square
-    double exp = (double)nit/(double) n;//esperado
-    double c = 0;//valor chi-square
-    int i;
+    double exp = (double)it/10;
+    double c = 0;
 
-    for(i=0;i<n;i++){
-        c = c + pow((double)vtotal[i] - exp,2)/exp;
+    for(i=0;i<10;i++){
+        c = c + pow((double)total[i] - exp,2)/exp;
     }
     //teste de hipotese
     double tc = 16.919;
-    printf("\nTeste Chi-Square:\nPara %d variaveis: X^2 = 16.919 (95%%), e para : %d iterações",n,nit);
+    printf("\nPara 10 variaveis: X^2 = 16.919 (95%%), e para : %d interações",it);
 
     if (tc > c) 
         printf("\n-O valor de chi-square e: %f\n-A hipotese passou no teste!!",c);
