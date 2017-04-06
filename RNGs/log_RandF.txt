@@ -1,0 +1,229 @@
+D:\BRUNO_ARQUIVOS_E_PROGRAMAS\prob\RNGs>cl /EHsc testRandF.cpp
+Microsoft (R) C/C++ Optimizing Compiler Version 19.00.24215.1 for x86
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+testRandF.cpp
+Microsoft (R) Incremental Linker Version 14.00.24215.1
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:testRandF.exe
+testRandF.obj
+
+D:\BRUNO_ARQUIVOS_E_PROGRAMAS\prob\RNGs>testRandF
+----Iniciando Testes-----
+
+
+---------------------
+
+Teste 1
+---------------------
+Feito em: 7 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 9882
+-> 1 : 10128
+-> 2 : 10062
+-> 3 : 9840
+-> 4 : 10135
+-> 5 : 10137
+-> 6 : 10042
+-> 7 : 9888
+-> 8 : 9757
+-> 9 : 10129
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 100000 intera├º├Áes
+-Hipotese n├úo v├ílida:
+Valor de chi-square: 18.674400
+
+---------------------
+
+Teste 2
+---------------------
+Feito em: 69 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 100077
+-> 1 : 100330
+-> 2 : 100058
+-> 3 : 100350
+-> 4 : 99906
+-> 5 : 99644
+-> 6 : 100009
+-> 7 : 99939
+-> 8 : 99780
+-> 9 : 99907
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 1000000 intera├º├Áes
+-O valor de chi-square e: 4.371160
+-A hipotese passou no teste!!
+
+---------------------
+
+Teste 3
+---------------------
+Feito em: 685 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 1000567
+-> 1 : 1000763
+-> 2 : 999759
+-> 3 : 999631
+-> 4 : 1001385
+-> 5 : 1001390
+-> 6 : 999042
+-> 7 : 998609
+-> 8 : 1000129
+-> 9 : 998725
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 10000000 intera├º├Áes
+-O valor de chi-square e: 9.443136
+-A hipotese passou no teste!!
+
+
+----Fim do Testes-----
+
+D:\BRUNO_ARQUIVOS_E_PROGRAMAS\prob\RNGs>testRandF
+----Iniciando Testes-----
+
+
+---------------------
+
+Teste 1
+---------------------
+Feito em: 9 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 9970
+-> 1 : 10196
+-> 2 : 9907
+-> 3 : 9934
+-> 4 : 9980
+-> 5 : 10097
+-> 6 : 10055
+-> 7 : 9876
+-> 8 : 9978
+-> 9 : 10007
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 100000 intera├º├Áes
+-O valor de chi-square e: 8.106400
+-A hipotese passou no teste!!
+
+---------------------
+
+Teste 2
+---------------------
+Feito em: 69 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 99605
+-> 1 : 100335
+-> 2 : 99751
+-> 3 : 99392
+-> 4 : 100389
+-> 5 : 99582
+-> 6 : 100235
+-> 7 : 100291
+-> 8 : 100525
+-> 9 : 99895
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 1000000 intera├º├Áes
+-O valor de chi-square e: 14.525160
+-A hipotese passou no teste!!
+
+---------------------
+
+Teste 3
+---------------------
+Feito em: 685 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 999630
+-> 1 : 1001132
+-> 2 : 1000937
+-> 3 : 998385
+-> 4 : 999303
+-> 5 : 1001437
+-> 6 : 1000817
+-> 7 : 999741
+-> 8 : 999094
+-> 9 : 999524
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 10000000 intera├º├Áes
+-O valor de chi-square e: 9.237278
+-A hipotese passou no teste!!
+
+
+----Fim do Testes-----
+
+D:\BRUNO_ARQUIVOS_E_PROGRAMAS\prob\RNGs>testRandF
+----Iniciando Testes-----
+
+
+---------------------
+
+Teste 1
+---------------------
+Feito em: 15 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 10221
+-> 1 : 10065
+-> 2 : 9959
+-> 3 : 9917
+-> 4 : 9862
+-> 5 : 10106
+-> 6 : 10092
+-> 7 : 9875
+-> 8 : 9996
+-> 9 : 9907
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 100000 intera├º├Áes
+-O valor de chi-square e: 12.467000
+-A hipotese passou no teste!!
+
+---------------------
+
+Teste 2
+---------------------
+Feito em: 75 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 99531
+-> 1 : 99838
+-> 2 : 99798
+-> 3 : 100447
+-> 4 : 100243
+-> 5 : 100220
+-> 6 : 99963
+-> 7 : 100048
+-> 8 : 100171
+-> 9 : 99741
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 1000000 intera├º├Áes
+-O valor de chi-square e: 6.942620
+-A hipotese passou no teste!!
+
+---------------------
+
+Teste 3
+---------------------
+Feito em: 686 (miliseconds)
+Resultados:
+-> N  : Frequencia
+-> 0 : 998824
+-> 1 : 1000342
+-> 2 : 999640
+-> 3 : 1001304
+-> 4 : 999143
+-> 5 : 1002051
+-> 6 : 999541
+-> 7 : 999311
+-> 8 : 1000092
+-> 9 : 999752
+
+Para 10 variaveis: X^2 = 16.919 (95%), e para : 10000000 intera├º├Áes
+-O valor de chi-square e: 9.026376
+-A hipotese passou no teste!!
+
+
+----Fim do Testes-----
